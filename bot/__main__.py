@@ -5,6 +5,9 @@ from aiogram import Dispatcher
 from bot.bot import bot
 from bot.handlers import router
 
+from shared.logger import setup_loggers
+
+
 async def main():
     dispatcher = Dispatcher()
 
@@ -18,6 +21,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    setup_loggers()
+
     loop = asyncio.new_event_loop()
     loop.run_until_complete(
         main()
