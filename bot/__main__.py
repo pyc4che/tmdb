@@ -7,7 +7,7 @@ from bot.handlers import router
 
 async def main():
     dispatcher = Dispatcher()
-    
+
     dispatcher.include_router(
         router
     )

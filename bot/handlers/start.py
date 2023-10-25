@@ -9,9 +9,9 @@ router = Router()
 
 
 def get_menu_reply_markup() -> ReplyKeyboardMarkup:
-    
+
     buttons = [
-        'Random Meal', 'Search by Name', 'Categories', 
+        'Random Meal', 'Search by Name', 'Categories',
         'Search by Ingredient', 'Search By Category',
     ]
 
@@ -34,9 +34,10 @@ def get_menu_reply_markup() -> ReplyKeyboardMarkup:
 async def start(
         message: Message
     ):
-    
+
     menu_markup = get_menu_reply_markup()
 
     await message.answer(
+        "Hello, I'm TMDB Bot",
         reply_markup=menu_markup
     )

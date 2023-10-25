@@ -5,7 +5,7 @@ from requests import get
 class Database:
     def __init__(
             self, page='http://www.themealdb.com/api/json/v1/1/'
-        ):    
+    ):
 
         self.page = page
 
@@ -20,7 +20,7 @@ class Database:
 
 
     def make_details(
-            self, response, 
+            self, response,
             request
         ):
 
@@ -41,7 +41,7 @@ class Database:
                 keys[i - 1].lower().replace('str', ''), values[i - 1]
             ]
 
-            if (data[1] in ['', ' '] 
+            if (data[1] in ['', ' ']
                 or data[1] is None):
 
                 continue
@@ -78,7 +78,7 @@ class Database:
             ).content.decode()
         )
 
-        if (response 
+        if (response
             and response['meals'] is not None):
 
             return self.make_details_random(
@@ -90,7 +90,7 @@ class Database:
 
 
     def make_details_random(
-            self, response, 
+            self, response,
             request
         ):
 
@@ -107,7 +107,7 @@ class Database:
 
 
     def make_details_by_parameters(
-            self, response, 
+            self, response,
             request
         ):
 
@@ -171,9 +171,9 @@ class Database:
 
         return self.make_request('search.php?s=', name)
 
-    
+
     def make_request(
-            self, arg0, 
+            self, arg0,
             arg1
         ):
 
@@ -185,7 +185,7 @@ class Database:
             ).content.decode()
             )
 
-        if (response 
+        if (response
             and response['meals'] is not None):
 
             return self.make_details_by_parameters(
@@ -197,7 +197,7 @@ class Database:
 
 
     def return_meals(
-            self, request, 
+            self, request,
             meals_return
         ):
 
@@ -207,11 +207,11 @@ class Database:
             ).content.decode()
         )
 
-        if (response 
+        if (response
             and response['meals'] is not None):
 
             return self.extend_data(
-                response, meals_return, 
+                response, meals_return,
                 request
                 )
 
@@ -220,7 +220,7 @@ class Database:
 
 
     def extend_data(
-            self, response, 
+            self, response,
             meals_return, request
         ):
 
@@ -228,12 +228,13 @@ class Database:
 
         meals_return.extend(
             [
-                int(meal['idMeal']), 
+                int(meal['idMeal']),
                 meal['strMeal']
-            ] 
+            ]
             for meal in meals
         )
 
         del request, response, meals
 
         return meals_return
+

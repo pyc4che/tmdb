@@ -13,6 +13,10 @@ class Config:
             self
         ):
 
+        self.parser.sections(
+
+        )
+
         self.parser.read(
             self.config
         )

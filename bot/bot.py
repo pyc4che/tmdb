@@ -3,7 +3,8 @@ from aiogram import Bot
 from config.config import Config
 
 token = Config(
-    '../../configs/config.conf'
+    './configs/config.ini'
 ).read()
 
 bot = Bot(token)
+
