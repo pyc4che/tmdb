@@ -11,8 +11,8 @@ router = Router()
 def get_menu_reply_markup() -> ReplyKeyboardMarkup:
 
     buttons = [
-        'Random Meal', 'Search by Name', 'Categories',
-        'Search by Ingredient', 'Search By Category',
+        'Random Meal', 'Categories',
+        'Search'
     ]
 
     builder = ReplyKeyboardBuilder()
@@ -23,7 +23,7 @@ def get_menu_reply_markup() -> ReplyKeyboardMarkup:
                 text=button
             )
         )
-        builder.adjust(3)
+        builder.adjust(2)
 
     return builder.as_markup(
             resize_keyboard=True
