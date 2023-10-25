@@ -1,3 +1,5 @@
 imgs
 .venv
 .vscode
+config.conf
+__pycache__
